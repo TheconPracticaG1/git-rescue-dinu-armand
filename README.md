@@ -1,25 +1,10 @@
-# Git Rescue
 
-Challenge 4 din săptămâna 1. Cinci situații reale în care „s-a stricat ceva” în Git. Le repari fără să pierzi muncă și fără să rescrii istoria publicată.
-
-## Cum începi
-
-1. Pe GitHub, în acest repo: **Use this template** → **Create a new repository**
-2. **Owner:** `TheconPracticaG1`, **nume:** `git-rescue-<nume>`, bifează **Include all branches**
-3. `git clone git@github.com:TheconPracticaG1/git-rescue-<nume>.git`
-4. Pentru fiecare scenariu: `git switch scenariu-N` și citește `MISIUNE.md`
-
-## Reguli
-
-1. Lucrezi **doar în copia ta**, `git-rescue-<nume>`.
-2. Fiecare scenariu se predă printr-un **Pull Request în branch-ul `scenariu-N`** (nu în `main`), cu titlul `Scenariu N: ...`.
-3. În descrierea PR-ului scrii **comenzile rulate, în ordine, și de ce**. Fără explicație, scenariul primește jumătate din puncte.
-4. **`git push --force` e interzis.** Niciun scenariu nu are nevoie de el.
-
-| # | Scenariu | XP |
-|---|---|---|
-| 1 | Commit pe branch greșit | 30 |
-| 2 | Bug pe un branch comun | 40 |
-| 3 | Commit „pierdut” | 40 |
-| 4 | Secret comis | 40 |
-| 5 | Documentează | 50 |
+- Scenariu 1 (Mutare commit pe branch nou):** Am mutat un commit gresit de pe main pe un branch nou si am curatat branch-ul curent.
+  - Comanda cheie: `git reset --hard HEAD~1` si crearea branch-ului separat.
+- Scenariu 2 (Anulare bug fara rescrierea istoriei):** Am anulat efectul unui commit cu probleme pe un branch comun pastrand istoria intacta.
+  - Comanda cheie: `git revert <hash> --no-edit`
+- Scenariu 3 (Recuperare commit sters):** Am recuperat un commit pierdut in urma unui reset agresiv folosind jurnalul local.
+  - Comanda cheie: `git reflog` urmat de `git switch -c recuperat-3 <hash>`
+- Scenariu 4 (Eliminare fisiere sensibile):** Am scos un fisier `.env` cu secrete din repo si am documentat incidentul.
+  - Comanda cheie: `git rm .env` si adaugarea in `.gitignore`
+- Scenariu 5 (Documentare si ADR):** Am creat README-ul general si primul Architecture Decision Record pentru decizia de la Scenariul 2.
